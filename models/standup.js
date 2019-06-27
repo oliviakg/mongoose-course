@@ -1,6 +1,12 @@
 const mongoose = require('mongoose');
 
 const standupSchema = new mongoose.Schema({
+  teamMemberId: {
+    // reference other documents within collection
+    // store object id values to those in our document
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'teamMembers',
+  },
   teamMember: { type: String },
   project: { type: String },
   workYesterday: { type: String },
